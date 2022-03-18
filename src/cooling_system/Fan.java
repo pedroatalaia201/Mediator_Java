@@ -1,37 +1,24 @@
 package cooling_system;
+import javax.swing.JOptionPane;
 
 public class Fan 
 {
-	private Mediator mediator;
+	private PowerSupplier powerSupplier = new PowerSupplier();
 	public boolean isOn = false;
 	
 	public Fan() {}
 
 	public void turnOn()
 	{
-		if(this.mediator == null)
-		{
-			setMediator();
-		}
-		
-		mediator.start();
+		powerSupplier.turnOn();
 		isOn = true;
+		JOptionPane.showMessageDialog(null, "The fan is on");
 	}
 	
 	public void turnOff()
 	{
-		if(this.mediator == null)
-		{
-			setMediator();
-		}
-		
 		isOn = false;
-		mediator.stop();
-	}
-	
-	private void setMediator()
-	{
-		this.mediator = new Mediator();
-		return;
+		JOptionPane.showMessageDialog(null, "The fan is off");		
+		powerSupplier.turnOff();
 	}
 }

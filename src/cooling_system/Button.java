@@ -2,12 +2,17 @@ package cooling_system;
 
 public class Button 
 {
-	private Mediator mediator = new Mediator();
-	
+	private Fan fan = new Fan();
 	public Button() {}
 	
 	public void press()
 	{
-		mediator.press();
+		 if(fan.isOn == true){
+			 fan.turnOff();
+		 } 
+		 else 
+		 {
+	        fan.turnOn();
+	     }
 	}
 }
